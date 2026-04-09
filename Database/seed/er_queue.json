@@ -1,0 +1,9 @@
+[
+  {"queue_id":1,"hospital_id":1,"patient_name":"Rahul Singh","priority":"RED","symptoms":"Chest pain","arrival_time":"10:02"},
+  {"queue_id":2,"hospital_id":1,"patient_name":"Amit Shah","priority":"YELLOW","symptoms":"Fracture","arrival_time":"10:08"},
+  {"queue_id":3,"hospital_id":1,"patient_name":"Priya Patel","priority":"GREEN","symptoms":"Fever","arrival_time":"10:12"},
+  {"queue_id":4,"hospital_id":1,"patient_name":"Kunal Verma","priority":"RED","symptoms":"Head injury","arrival_time":"10:16"},
+  {"queue_id":5,"hospital_id":1,"patient_name":"Neha Jain","priority":"YELLOW","symptoms":"Severe stomach pain","arrival_time":"10:20"},
+  {"queue_id":6,"hospital_id":1,"patient_name":"Rakesh Gupta","priority":"GREEN","symptoms":"Minor cut","arrival_time":"10:24"},
+  {"queue_id":7,"hospital_id":1,"patient_name":"Arjun Malhotra","priority":"RED","symptoms":"Breathing difficulty","arrival_time":"10:28"}
+]

@@ -1,0 +1,10 @@
+[
+  {"department_id":1,"hospital_id":1,"name":"Emergency","beds_total":45,"beds_available":7,"doctors_on_duty":8},
+  {"department_id":2,"hospital_id":1,"name":"ICU","beds_total":32,"beds_available":4,"doctors_on_duty":7},
+  {"department_id":3,"hospital_id":1,"name":"Cardiology","beds_total":50,"beds_available":14,"doctors_on_duty":6},
+  {"department_id":4,"hospital_id":1,"name":"Orthopedics","beds_total":40,"beds_available":9,"doctors_on_duty":5},
+  {"department_id":5,"hospital_id":1,"name":"Neurology","beds_total":30,"beds_available":6,"doctors_on_duty":4},
+  {"department_id":6,"hospital_id":1,"name":"General Medicine","beds_total":70,"beds_available":22,"doctors_on_duty":9},
+  {"department_id":7,"hospital_id":1,"name":"Pediatrics","beds_total":25,"beds_available":7,"doctors_on_duty":3},
+  {"department_id":8,"hospital_id":1,"name":"Trauma","beds_total":28,"beds_available":6,"doctors_on_duty":6}
+]

@@ -1,0 +1,17 @@
+{
+  "hospital_id": 1,
+  "name": "VJTI General Hospital",
+  "address": "Matunga East, Mumbai",
+  "latitude": 19.0269,
+  "longitude": 72.8553,
+  "total_beds": 320,
+  "available_beds": 78,
+  "er_capacity": 45,
+  "er_current_patients": 38,
+  "ventilators_total": 28,
+  "ventilators_available": 9,
+  "oxygen_units_total": 60,
+  "oxygen_units_available": 21,
+  "status": "BUSY",
+  "last_updated": "2026-03-24T10:15:00"
+}

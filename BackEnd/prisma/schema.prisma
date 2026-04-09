@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Hospital {
+  id              Int      @id @default(autoincrement())
+  name            String
+  address         String?
+  lat             Float
+  lng             Float
+  totalBeds       Int
+  erCapacity      Int
+  currentPatients Int      @default(0)
+  availableBeds   Int
+  avgWaitTime     Int
+  contactNumber   String?
+  isActive        Boolean  @default(true)
+  lastUpdated     DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Token {
+  id            Int      @id @default(autoincrement())
+  patientName   String
+  patientAge    Int
+  hospitalId    Int
+  riskLevel     String
+  tokenNumber   Int
+  estimatedTime Int
+  status        String   @default("WAITING")
+  createdAt     DateTime @default(now())
+}
+
+model TriageSubmission {
+  submission_id           Int      @id @default(autoincrement())
+  patient_name            String
+  age                     Int
+  gender                  String
+
+  chest_pain              Boolean
+  breathing_difficulty    Boolean
+  heavy_bleeding          Boolean
+  unconscious             Boolean
+  severe_burns            Boolean
+  head_injury             Boolean
+  accident                Boolean
+  high_fever              Boolean
+  vomiting                Boolean
+  seizure                 Boolean
+
+  pain_level              Int
+  symptom_duration_hours  Int
+
+  priority_score          Int
+  triage_category         String
+
+  created_at              DateTime @default(now())
+}

@@ -1,0 +1,12 @@
+[
+  {"doctor_id":1,"hospital_id":1,"name":"Dr Rohan Sharma","specialization":"Emergency Medicine","on_duty":true},
+  {"doctor_id":2,"hospital_id":1,"name":"Dr Kavita Mehta","specialization":"Cardiology","on_duty":true},
+  {"doctor_id":3,"hospital_id":1,"name":"Dr Nikhil Desai","specialization":"Orthopedics","on_duty":true},
+  {"doctor_id":4,"hospital_id":1,"name":"Dr Arjun Iyer","specialization":"Neurology","on_duty":true},
+  {"doctor_id":5,"hospital_id":1,"name":"Dr Pooja Shah","specialization":"General Medicine","on_duty":false},
+  {"doctor_id":6,"hospital_id":1,"name":"Dr Manish Patel","specialization":"Critical Care","on_duty":true},
+  {"doctor_id":7,"hospital_id":1,"name":"Dr Sneha Joshi","specialization":"Pediatrics","on_duty":true},
+  {"doctor_id":8,"hospital_id":1,"name":"Dr Karan Gupta","specialization":"Trauma Surgery","on_duty":true},
+  {"doctor_id":9,"hospital_id":1,"name":"Dr Tanvi Rao","specialization":"Emergency Medicine","on_duty":true},
+  {"doctor_id":10,"hospital_id":1,"name":"Dr Amit Kulkarni","specialization":"Cardiology","on_duty":false}
+]

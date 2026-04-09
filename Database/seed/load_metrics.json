@@ -1,0 +1,8 @@
+{
+  "hospital_id": 1,
+  "bed_occupancy": 0.75,
+  "er_load": 0.84,
+  "ventilator_load": 0.67,
+  "doctor_availability": 0.78,
+  "overall_status": "BUSY"
+}

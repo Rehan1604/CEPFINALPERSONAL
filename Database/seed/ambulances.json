@@ -1,0 +1,6 @@
+[
+  {"ambulance_id":"AMB01","hospital_id":1,"driver":"Suresh","status":"AVAILABLE"},
+  {"ambulance_id":"AMB02","hospital_id":1,"driver":"Imran","status":"ON_ROUTE"},
+  {"ambulance_id":"AMB03","hospital_id":1,"driver":"Ramesh","status":"BUSY"},
+  {"ambulance_id":"AMB04","hospital_id":1,"driver":"Vikram","status":"AVAILABLE"}
+]

@@ -1,0 +1,10 @@
+[
+  {"nurse_id":1,"hospital_id":1,"name":"Asha Patil","department":"Emergency"},
+  {"nurse_id":2,"hospital_id":1,"name":"Neha Nair","department":"ICU"},
+  {"nurse_id":3,"hospital_id":1,"name":"Priya Gupta","department":"Cardiology"},
+  {"nurse_id":4,"hospital_id":1,"name":"Ritu Singh","department":"Orthopedics"},
+  {"nurse_id":5,"hospital_id":1,"name":"Kavya Shah","department":"Neurology"},
+  {"nurse_id":6,"hospital_id":1,"name":"Sonal Jain","department":"General Medicine"},
+  {"nurse_id":7,"hospital_id":1,"name":"Meena Yadav","department":"Trauma"},
+  {"nurse_id":8,"hospital_id":1,"name":"Pallavi Patkar","department":"Pediatrics"}
+]

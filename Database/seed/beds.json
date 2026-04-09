@@ -1,0 +1,12 @@
+[
+  {"bed_id":1,"hospital_id":1,"department":"ICU","type":"VENTILATOR","occupied":true},
+  {"bed_id":2,"hospital_id":1,"department":"ICU","type":"VENTILATOR","occupied":true},
+  {"bed_id":3,"hospital_id":1,"department":"ICU","type":"VENTILATOR","occupied":false},
+  {"bed_id":4,"hospital_id":1,"department":"Emergency","type":"ER","occupied":true},
+  {"bed_id":5,"hospital_id":1,"department":"Emergency","type":"ER","occupied":true},
+  {"bed_id":6,"hospital_id":1,"department":"Emergency","type":"ER","occupied":false},
+  {"bed_id":7,"hospital_id":1,"department":"General Medicine","type":"GENERAL","occupied":true},
+  {"bed_id":8,"hospital_id":1,"department":"General Medicine","type":"GENERAL","occupied":false},
+  {"bed_id":9,"hospital_id":1,"department":"Cardiology","type":"ICU","occupied":true},
+  {"bed_id":10,"hospital_id":1,"department":"Cardiology","type":"ICU","occupied":false}
+]

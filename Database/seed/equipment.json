@@ -1,0 +1,8 @@
+[
+  {"equipment_id":1,"hospital_id":1,"type":"Ventilator","total_units":28,"available_units":9},
+  {"equipment_id":2,"hospital_id":1,"type":"Oxygen Cylinder","total_units":60,"available_units":21},
+  {"equipment_id":3,"hospital_id":1,"type":"Defibrillator","total_units":12,"available_units":4},
+  {"equipment_id":4,"hospital_id":1,"type":"ECG Machine","total_units":14,"available_units":6},
+  {"equipment_id":5,"hospital_id":1,"type":"MRI Scanner","total_units":2,"available_units":1},
+  {"equipment_id":6,"hospital_id":1,"type":"CT Scanner","total_units":3,"available_units":2}
+]

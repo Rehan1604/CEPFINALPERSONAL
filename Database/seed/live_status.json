@@ -1,0 +1,8 @@
+{
+  "hospital_id": 1,
+  "er_wait_time_minutes": 34,
+  "ambulances_waiting": 3,
+  "icu_waiting_patients": 4,
+  "average_triage_time_minutes": 6,
+  "peak_hour": "18:00-21:00"
+}
