@@ -26,6 +26,7 @@ export default function Home() {
           });
 
           const data = await res.json();
+          console.log(data);
 
           // ✅ store for hospital page
           localStorage.setItem("triageData", JSON.stringify(data));

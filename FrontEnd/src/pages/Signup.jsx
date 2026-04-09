@@ -24,7 +24,7 @@ export default function Signup() {
       console.log("Signup success:", res.data);
 
       alert("Signup successful 🎉");
-      navigate("/login");
+      navigate("/");
 
     } catch (err) {
       console.error("Signup error:", err.response?.data || err.message);
@@ -96,7 +96,7 @@ export default function Signup() {
           Already have an account?{" "}
           <span
             className="text-cyan-400 cursor-pointer hover:underline"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/")}
           >
             Login
           </span>

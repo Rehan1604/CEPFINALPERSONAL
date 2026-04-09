@@ -33,8 +33,12 @@ export default function Hospitals() {
 
       const data = await res.json();
 
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to create token");
+      }
+
       console.log("Token created:", data);
-      alert("✅ Token booked successfully!");
+      alert(`✅ Token booked! Token #${data?.data?.tokenNumber}`);
     } catch (err) {
       console.error("Token error:", err);
       alert("❌ Failed to book token");
@@ -56,12 +60,11 @@ export default function Hospitals() {
       </h1>
 
       <div className="grid md:grid-cols-3 gap-8">
-        {hospitals.map((hospital, index) => (
+        {hospitals.map((hospital) => (
           <motion.div
-            key={index}
+            key={hospital.id}
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
             className="backdrop-blur-xl bg-white/10 rounded-3xl p-6 border border-white/20 shadow-2xl"
           >
             <h2 className="text-2xl font-semibold">
@@ -84,7 +87,10 @@ export default function Hospitals() {
               ⏱ Total: {hospital.totalTime?.toFixed(1)} mins
             </p>
 
-            {/* ✅ FIXED BUTTON */}
+            <p className="text-xs text-slate-500 mt-2">
+              Source: {hospital.source}
+            </p>
+
             <button
               onClick={() => handleBookToken(hospital)}
               className="mt-6 w-full py-3 rounded-2xl bg-cyan-500 hover:bg-cyan-600 transition font-semibold"

@@ -1,7 +1,7 @@
 const { calculateHospitalLoad } = require("./calculateLoad");
-const { calculateDistance } = require("./distance");
+const { getLiveDistance } = require("./liveDistance");
 
-const selectNearestHospitals = (
+const selectNearestHospitals = async (
   hospitals,
   patientLocation,
   priority,
@@ -10,8 +10,8 @@ const selectNearestHospitals = (
   let filtered = [];
 
   for (let hospital of hospitals) {
+    if (!hospital.isActive) continue;
 
-    // ✅ Skip invalid hospitals (FIXED for Prisma)
     if (
       hospital.lat == null ||
       hospital.lng == null ||
@@ -21,51 +21,32 @@ const selectNearestHospitals = (
       continue;
     }
 
-    // ❌ Skip inactive hospitals
-    if (hospital.isActive === false) continue;
-
-    // ❌ RED patients need capacity (simulate ICU via availableBeds)
-    if (priority === "RED" && hospital.availableBeds <= 0) continue;
-
-    // 📍 Distance (FIXED)
-    const distance = calculateDistance(
-      Number(patientLocation.lat),
-      Number(patientLocation.lon),
-      Number(hospital.lat),
-      Number(hospital.lng)
+    const route = await getLiveDistance(
+      patientLocation.lat,
+      patientLocation.lon,
+      hospital.lat,
+      hospital.lng
     );
 
-    // 🚗 Travel Time
-    const avgSpeed = 30;
-    const travelTime = (distance / avgSpeed) * 60;
-
-    // 🏥 Wait Time
-    const waitTime =
-      hospital.avgWaitTime ||
-      10;
-
-    // 📊 Load
-    const load = calculateHospitalLoad(hospital);
-
-    // ⏱️ Total Time
-    const totalTime = travelTime + waitTime;
+    const waitTime = hospital.avgWaitTime || 10;
+    const totalTime = route.durationMin + waitTime;
 
     filtered.push({
       ...hospital,
-      distance,
-      travelTime,
+      distance: route.distanceKm,
+      travelTime: route.durationMin,
       waitTime,
       totalTime,
-      load
+      source: route.source,
+      load: calculateHospitalLoad(hospital),
     });
   }
 
-  // 🔥 Sort best first
   filtered.sort((a, b) => a.totalTime - b.totalTime);
 
   return filtered.slice(0, limit);
 };
 
 module.exports = {
-  selectNearestHospitals
+  selectNearestHospitals,
 };
