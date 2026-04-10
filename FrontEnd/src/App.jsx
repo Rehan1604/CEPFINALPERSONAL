@@ -3,18 +3,25 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Hospitals from "./pages/Hospitals";
+import Dashboard from "./pages/Dashboard";
+import TokenBooking from "./pages/TokenBooking";
+import Triage from "./pages/Triage";
+import AdminDashboard from "./pages/AdminDashboard";
+import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   return (
     <Router>
+      <ThemeToggle />
       <Routes>
-        {/* default first page */}
         <Route path="/" element={<Login />} />
-
-        {/* other pages */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<Home />} />
         <Route path="/hospitals" element={<Hospitals />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/token-booking" element={<TokenBooking />} />
+        <Route path="/triage" element={<Triage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );
