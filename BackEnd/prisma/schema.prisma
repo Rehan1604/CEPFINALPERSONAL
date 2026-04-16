@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
 }
 
 model Hospital {
@@ -50,7 +50,6 @@ model TriageSubmission {
   patient_name            String
   age                     Int
   gender                  String
-
   chest_pain              Boolean
   breathing_difficulty    Boolean
   heavy_bleeding          Boolean
@@ -61,12 +60,9 @@ model TriageSubmission {
   high_fever              Boolean
   vomiting                Boolean
   seizure                 Boolean
-
   pain_level              Int
   symptom_duration_hours  Int
-
   priority_score          Int
   triage_category         String
-
   created_at              DateTime @default(now())
 }

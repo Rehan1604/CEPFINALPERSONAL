@@ -58,14 +58,19 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, email: user.email },
+      { id: user.id, email: user.email, name: user.name },
       JWT_SECRET,
       { expiresIn: "24h" }
     );
 
     res.json({
       message: "Login successful",
-      token
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email
+      }
     });
 
   } catch (error) {

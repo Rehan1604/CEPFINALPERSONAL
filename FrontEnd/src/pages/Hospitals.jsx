@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function Hospitals() {
   const [hospitals, setHospitals] = useState([]);
   const [bookingId, setBookingId] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const stored = localStorage.getItem("triageData");
@@ -20,6 +22,13 @@ export default function Hospitals() {
       setBookingId(hospital.id);
       console.log("Booking for:", hospital);
 
+      const userName = localStorage.getItem("userName") || "Guest Patient";
+      const userStr = localStorage.getItem("user");
+      const userId = userStr ? JSON.parse(userStr).id : null;
+      const triageStr = localStorage.getItem("triageData");
+      const triageAge = triageStr ? JSON.parse(triageStr)?.data?.patientDetails?.age : 25;
+      const riskLevel = triageStr ? JSON.parse(triageStr)?.data?.triageCategory : "MEDIUM";
+
       const res = await fetch("http://localhost:5000/api/token", {
         method: "POST",
         headers: {
@@ -27,9 +36,11 @@ export default function Hospitals() {
         },
         body: JSON.stringify({
           hospitalId: hospital.id,
-          patientName: "Test User",
-          patientAge: 25,
-          riskLevel: "MEDIUM",
+          patientName: userName,
+          patientAge: parseInt(triageAge) || 25,
+          riskLevel: riskLevel || "MEDIUM",
+          travelTime: hospital.travelTime,
+          userId: userId
         }),
       });
 
@@ -40,7 +51,7 @@ export default function Hospitals() {
       }
 
       console.log("Token created:", data);
-      alert(`✅ Token booked! Token #${data?.data?.tokenNumber}`);
+      navigate("/token-status", { state: { token: data.data, hospital: hospital } });
     } catch (err) {
       console.error("Token error:", err);
       alert("❌ Failed to book token");

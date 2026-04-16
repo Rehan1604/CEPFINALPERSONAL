@@ -4,7 +4,7 @@ const { sendNotification } = require("../services/notificationService");
 // CREATE TOKEN
 const createToken = async (req, res) => {
   try {
-    const { patientName, patientAge, hospitalId, riskLevel } = req.body;
+    const { patientName, patientAge, hospitalId, riskLevel, travelTime, userId } = req.body;
 
     const lastToken = await prisma.token.findFirst({
       where: { hospitalId },
@@ -12,7 +12,12 @@ const createToken = async (req, res) => {
     });
 
     const newTokenNumber = lastToken ? lastToken.tokenNumber + 1 : 1;
-    const estimatedTime = newTokenNumber * 10;
+    const estimatedTime = travelTime ? Math.ceil(travelTime) : newTokenNumber * 10;
+    
+    // Expires at: Current time + travelTime + 10 mins buffer
+    const bufferMinutes = 10;
+    const totalExpiryMinutes = estimatedTime + bufferMinutes;
+    const expiresAt = new Date(Date.now() + totalExpiryMinutes * 60000);
 
     const token = await prisma.token.create({
       data: {
@@ -24,6 +29,9 @@ const createToken = async (req, res) => {
         estimatedTime,
       },
     });
+
+    // Manually append expiresAt to the token response without saving it to the DB schema
+    token.expiresAt = expiresAt;
 
     // 🔔 SEND NOTIFICATION
     await sendNotification({

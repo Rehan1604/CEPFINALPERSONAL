@@ -2,6 +2,16 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Home() {
+  const token = localStorage.getItem("token");
+  const userName = localStorage.getItem("userName");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("userName");
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden transition-colors duration-500">
       {/* Animated Mesmerizing Background Blobs */}
@@ -15,20 +25,35 @@ export default function Home() {
           Medi<span className="text-slate-900 dark:text-white">ROUTE</span>
         </h1>
 
-        <div className="space-x-4">
-          <Link
-            to="/"
-            className="px-6 py-2.5 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-white/10 transition-all font-medium text-slate-800 dark:text-slate-200 shadow-sm"
-          >
-            Login
-          </Link>
-
-          <Link
-            to="/signup"
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-cyan-500/40 transition-all transform hover:-translate-y-0.5"
-          >
-            Sign Up
-          </Link>
+        <div className="space-x-4 flex items-center">
+          {token ? (
+            <>
+              <span className="text-slate-700 dark:text-slate-300 font-bold mr-4">
+                Welcome, {userName || "User"}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="px-6 py-2.5 rounded-full border border-red-300 dark:border-red-900/50 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400 transition-all font-medium shadow-sm"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/"
+                className="px-6 py-2.5 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-white/10 transition-all font-medium text-slate-800 dark:text-slate-200 shadow-sm"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-cyan-500/40 transition-all transform hover:-translate-y-0.5"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </nav>
 
@@ -59,7 +84,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            AI-powered triage and real-time hospital routing based on urgency,
+            Triage and real-time hospital routing based on urgency,
             distance, and predictive wait times.
           </motion.p>
 
